@@ -8,7 +8,7 @@ class SimilarBooksCubit extends Cubit<SimilarBooksState> {
   getsimilarbooks({var category}) async {
     emit(Loadingsimilarbookssate());
 
-    var data = await homerepoimple.fetchasimilarbooks(category);
+    var data = await homerepoimple.fetchasimilarbooks();
     data.fold((error) {
       emit(Errorsimilarbookssate(error: error));
     }, (books) {

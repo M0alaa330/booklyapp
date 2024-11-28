@@ -4,5 +4,5 @@ import 'package:dartz/dartz.dart';
 abstract class Homerepo {
   Future<Either<String, BookModel>> fetchAllbooks({required int startIndex});
   Future<Either<String, List<Items>>> fetchbestsallerbooks();
-  Future fetchasimilarbooks(String category);
+  Future<Either<String, List<Items>>> fetchasimilarbooks();
 }

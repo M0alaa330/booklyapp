@@ -17,7 +17,7 @@ class BookdetailsScreen extends StatelessWidget {
     return BlocProvider(
         create: (context) => SimilarBooksCubit(
             Homerepoimple(apiservice: ApiService(dio: Dio()))
-              ..fetchasimilarbooks("programming"))
+              ..fetchasimilarbooks())
           ..getsimilarbooks(),
         child: Scaffold(
           body: Bodyhomedetails(booksinfo: booksinfo),

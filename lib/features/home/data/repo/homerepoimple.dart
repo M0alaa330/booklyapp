@@ -53,18 +53,18 @@ class Homerepoimple implements Homerepo {
   }
 
   @override
-  Future fetchasimilarbooks(String category) async {
+  Future<Either<String, List<Items>>> fetchasimilarbooks() async {
     try {
       var data = await apiservice.get(
           endpoints:
-              "volumes?Filtering=free-ebooks&Sorting=relevance&q=Subject:$category");
+              "v1/volumes?Filtering=free-ebooks&q=subject:Programming&Sorting=newest");
       List<Items> allbooks = [];
       for (var i in data["items"]) {
         allbooks.add(Items.fromJson(i));
       }
-      return allbooks;
+      return right(allbooks);
     } catch (e) {
-      return e.toString();
+      return left(e.toString());
     }
   }
 }
